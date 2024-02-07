@@ -1,9 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.2", "setuptools_scm[toml]>=3.4.1"]
+requires = ["setuptools>=61.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "jaraco.functools"
+version = "4.0.1"
 authors = [
 	{ name = "Jason R. Coombs", email = "jaraco@jaraco.com" },
 ]
@@ -20,7 +21,6 @@ requires-python = ">=3.8"
 dependencies = [
 	"more_itertools",
 ]
-dynamic = ["version"]
 
 [project.urls]
 Homepage = "https://github.com/jaraco/jaraco.functools"
@@ -53,5 +53,3 @@ docs = [
 
 	# local
 ]
-
-[tool.setuptools_scm]
