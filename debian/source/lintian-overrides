@@ -1,0 +1,5 @@
+python-jaraco.functools source: file-without-copyright-information
+python-jaraco.functools source: no-debian-changes
+python-jaraco.functools source: source-contains-prebuilt-windows-binary
+python-jaraco.functools source: source-is-missing
+python-jaraco.functools source: source-package-encodes-python-version
