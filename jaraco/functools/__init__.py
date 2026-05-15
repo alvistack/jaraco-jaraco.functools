@@ -620,6 +620,7 @@ def bypass_when(check, *, _op=identity):
     >>> double(2)
     2
     """
+
     def decorate(func):
         @functools.wraps(func)
         def wrapper(param, /):
