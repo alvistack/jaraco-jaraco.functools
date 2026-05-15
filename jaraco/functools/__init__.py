@@ -583,6 +583,16 @@ def identity(x):
     return x
 
 
+@functools.singledispatch
+def _as_invocable(check):
+    return lambda: check
+
+
+@_as_invocable.register(collections.abc.Callable)
+def _(check):
+    return check
+
+
 def bypass_when(check, *, _op=identity):
     """
     Decorate a function to return its parameter when ``check``.
@@ -597,12 +607,25 @@ def bypass_when(check, *, _op=identity):
     >>> bypassed[:] = [object()]  # True
     >>> double(2)
     2
+
+    ``check`` may also be a callable returning the condition.
+
+    >>> enabled = False
+    >>> @bypass_when(lambda: enabled)
+    ... def double(x):
+    ...     return x * 2
+    >>> double(2)
+    4
+    >>> enabled = True
+    >>> double(2)
+    2
     """
+    check = _as_invocable(check)
 
     def decorate(func):
         @functools.wraps(func)
         def wrapper(param, /):
-            return param if _op(check) else func(param)
+            return param if _op(check()) else func(param)
 
         return wrapper
 
