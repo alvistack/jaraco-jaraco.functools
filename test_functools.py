@@ -15,8 +15,6 @@ from jaraco.classes import properties
 
 from jaraco.functools import (
     Throttler,
-    bypass_unless,
-    bypass_when,
     method_cache,
     retry,
     retry_call,
@@ -254,27 +252,3 @@ class TestRetry:
         res = attempt(arg)
         assert res == 'Success'
         assert arg.touch.called
-
-
-class TestBypass:
-    def test_when_callable(self) -> None:
-        enabled = False
-
-        @bypass_when(lambda: enabled)
-        def double(value: int) -> int:
-            return value * 2
-
-        assert double(2) == 4
-        enabled = True
-        assert double(2) == 2
-
-    def test_unless_callable(self) -> None:
-        enabled = False
-
-        @bypass_unless(lambda: enabled)
-        def double(value: int) -> int:
-            return value * 2
-
-        assert double(2) == 2
-        enabled = True
-        assert double(2) == 4
