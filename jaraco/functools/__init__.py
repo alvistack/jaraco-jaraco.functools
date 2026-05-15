@@ -620,12 +620,10 @@ def bypass_when(check, *, _op=identity):
     >>> double(2)
     2
     """
-    check = _as_invocable(check)
-
     def decorate(func):
         @functools.wraps(func)
         def wrapper(param, /):
-            return param if _op(check()) else func(param)
+            return param if _op(_as_invocable(check)()) else func(param)
 
         return wrapper
 
