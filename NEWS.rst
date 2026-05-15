@@ -1,3 +1,13 @@
+v4.5.0
+======
+
+Features
+--------
+
+- ``bypass_when`` and ``bypass_unless`` now accept callable checks and evaluate
+  them on each invocation instead of binding only at decoration time. (#36)
+
+
 v4.4.0
 ======
 

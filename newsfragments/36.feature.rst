@@ -1,2 +1,0 @@
-``bypass_when`` and ``bypass_unless`` now accept callable checks and evaluate
-them on each invocation instead of binding only at decoration time.
