@@ -1,0 +1,4 @@
+python3-jaraco.functools: copyright-without-copyright-notice
+python3-jaraco.functools: initial-upload-closes-no-bugs
+python3-jaraco.functools: no-manual-page
+python3-jaraco.functools: zero-byte-file-in-doc-directory
