@@ -1,3 +1,12 @@
+v4.6.0
+======
+
+Features
+--------
+
+- Add ``signed`` wrapper to render a value with an explicit sign.
+
+
 v4.5.0
 ======
 
